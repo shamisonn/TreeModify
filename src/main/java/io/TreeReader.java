@@ -1,11 +1,11 @@
-package com.shami.main;
+package io;
 
 import com.shami.datastructure.TreeNode;
 
 public class TreeReader {
 
     // "((1,2),(3,((4,5),(((6,7),8),(9,10)))));"
-    // "3,(1,2)"
+    // "(3,(1,2));"
     public TreeNode makeTree(String input) {
         input = input.substring(1, input.length() - 2);
         TreeNode root = new TreeNode(null);

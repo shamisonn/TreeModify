@@ -1,7 +1,6 @@
-package main;
+package io;
 
 import com.shami.datastructure.TreeNode;
-import com.shami.main.TreeReader;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
