@@ -16,8 +16,8 @@ public class TreeNode {
     }
 
     // setter
-    public void beLeaf(boolean isLeaf) {
-        this.isLeaf = isLeaf;
+    public void beLeaf() {
+        this.isLeaf = true;
     }
 
     public boolean isLeaf() {

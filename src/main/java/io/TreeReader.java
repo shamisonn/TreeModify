@@ -39,7 +39,7 @@ public class TreeReader {
                 default:
                     // get label string from "someStr" to ',' or ')'
                     TreeNode leaf = new TreeNode(currentNode);
-                    leaf.beLeaf(true);
+                    leaf.beLeaf();
                     i = setLabel2delimiter(chars, i, leaf);
                     // and set leaf for right or left
                     if (setLeafLeft) {
