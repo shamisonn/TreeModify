@@ -1,15 +1,19 @@
-package io;
+package com.shami.io;
 
 import com.shami.datastructure.TreeNode;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TreeReaderTest {
+
+    @DisplayName("sample instance: (3,(1,2));")
     @Test
     void makeTreeTest1() {
         TreeReader tr = new TreeReader();
         TreeNode node = tr.makeTree("(3,(1,2));");
+
         assertEquals("3", node.getLeftChild().getLabel());
         assertEquals("1", node.getRightChild().getLeftChild().getLabel());
         assertEquals("2", node.getRightChild().getRightChild().getLabel());
