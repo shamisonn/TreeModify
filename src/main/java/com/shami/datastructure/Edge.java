@@ -15,6 +15,14 @@ public class Edge {
         fix = true;
     }
 
+    public boolean isFix() {
+        return fix;
+    }
+
+    public boolean hasLeaf() {
+        return child.isLeaf();
+    }
+
     public TreeNode getParent() {
         return parent;
     }
