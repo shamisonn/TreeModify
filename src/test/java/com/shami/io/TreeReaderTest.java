@@ -58,20 +58,36 @@ public class TreeReaderTest {
                 root.getLeftChild().getLabel(),
                 node.getLeftChild().getLabel()
         );
+        assertEquals(
+                root.getLeftChild().getLabel(),
+                "1"
+        );
 
         assertEquals(
                 root.getRightChild().getRightChild().getLabel(),
                 node.getRightChild().getRightChild().getLabel()
+        );
+        assertEquals(
+                root.getRightChild().getRightChild().getLabel(),
+                "4"
         );
 
         assertEquals(
                 root.getRightChild().getLeftChild().getLeftChild().getLabel(),
                 node.getRightChild().getLeftChild().getLeftChild().getLabel()
         );
+        assertEquals(
+                root.getRightChild().getLeftChild().getLeftChild().getLabel(),
+                "5"
+        );
 
         assertEquals(
                 root.getRightChild().getLeftChild().getRightChild().getLabel(),
                 node.getRightChild().getLeftChild().getRightChild().getLabel()
+        );
+        assertEquals(
+                root.getRightChild().getLeftChild().getRightChild().getLabel(),
+                "6"
         );
     }
 
