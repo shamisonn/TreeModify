@@ -5,6 +5,10 @@ public class TreeNode {
     private TreeNode rightChild;
     private TreeNode leftChild;
 
+    private TreeEdge parentEdge;
+    private TreeEdge rightEdge;
+    private TreeEdge leftEdge;
+
     private boolean isLeaf;
     private String label;
 
@@ -75,5 +79,37 @@ public class TreeNode {
         } else {
             return "(" + this.leftChild + "," + this.rightChild + ")";
         }
+    }
+
+    public void setParent(TreeNode parent) {
+        this.parent = parent;
+    }
+
+    public TreeEdge getParentEdge() {
+        return parentEdge;
+    }
+
+    public void setParentEdge(TreeEdge parentEdge) {
+        this.parentEdge = parentEdge;
+    }
+
+    public TreeEdge getRightEdge() {
+        return rightEdge;
+    }
+
+    public void setRightEdge(TreeEdge rightEdge) {
+        this.rightEdge = rightEdge;
+    }
+
+    public TreeEdge getLeftEdge() {
+        return leftEdge;
+    }
+
+    public void setLeftEdge(TreeEdge leftEdge) {
+        this.leftEdge = leftEdge;
+    }
+
+    public void setLeaf(boolean leaf) {
+        isLeaf = leaf;
     }
 }
