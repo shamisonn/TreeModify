@@ -7,9 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreeModifier {
-    List<TreeEdge> edges;
+    private TreeNode tree;
+    private List<TreeEdge> edges;
 
     public TreeModifier(TreeNode tree) {
+        this.tree = tree;
         this.edges = edgesSetting(tree);
     }
 
@@ -18,14 +20,16 @@ public class TreeModifier {
     }
 
     private List<TreeEdge> makeEdges(TreeNode node, TreeEdge parent) {
-        List<TreeEdge> edges = new ArrayList<>();
-        if(node.isLeaf()) {
-            return edges;
-        }
         // set parent edge
         if (!node.isRoot()) {
             node.setParentEdge(parent);
         }
+
+        List<TreeEdge> edges = new ArrayList<>();
+        if(node.isLeaf()) {
+            return edges;
+        }
+
         // make left and set
         TreeEdge left = new TreeEdge(node, node.getLeftChild());
         edges.add(left);
@@ -52,5 +56,13 @@ public class TreeModifier {
     public TreeNode modify(TreeEdge e, boolean doLeftChange) {
 
         return null;
+    }
+
+    public TreeNode getTree() {
+        return tree;
+    }
+
+    public List<TreeEdge> getEdges() {
+        return edges;
     }
 }
