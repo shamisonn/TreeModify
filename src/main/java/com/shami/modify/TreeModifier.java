@@ -1,9 +1,9 @@
-package com.shami.changer;
+package com.shami.modify;
 
 import com.shami.datastructure.Edge;
 import com.shami.datastructure.TreeNode;
 
-public class TreeChanger {
+public class TreeModifier {
 
     // easy change
     public TreeNode change1(Edge e) {
