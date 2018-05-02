@@ -67,4 +67,13 @@ public class TreeNode {
     public TreeNode getLeftChild() {
         return leftChild;
     }
+
+    @Override
+    public String toString() {
+        if (this.isLeaf) {
+            return this.label;
+        } else {
+            return "(" + this.leftChild + "," + this.rightChild + ")";
+        }
+    }
 }
