@@ -33,7 +33,7 @@ class TreeModifierTest {
         n2.setRightChild(n4);
         n4.beLeaf();
 
-        TreeModifier modifier = new TreeModifier(root);
+        TreeModifier modifier = new TreeModifier(root, 1);
         // root = modifier.getTree();
 
         // root: root

@@ -6,9 +6,18 @@ public class TreeEdge {
 
     private boolean fix = false;
 
-    public TreeEdge(TreeNode parent, TreeNode child) {
+    private boolean isSlopePositive;
+
+    // / -> positive
+    // \ -> negative
+    public TreeEdge(TreeNode parent, TreeNode child, boolean isSlopePositive) {
         this.parent = parent;
         this.child = child;
+        this.isSlopePositive = isSlopePositive;
+    }
+
+    public TreeEdge(TreeNode parent, TreeNode child) {
+        new TreeEdge(parent, child, true);
     }
 
     public void fix() {
@@ -19,8 +28,20 @@ public class TreeEdge {
         return fix;
     }
 
+    public boolean isSlopePositive() {
+        return isSlopePositive;
+    }
+
     public boolean hasLeaf() {
         return child.isLeaf();
+    }
+
+    public void setParent(TreeNode parent) {
+        this.parent = parent;
+    }
+
+    public void setChild(TreeNode child) {
+        this.child = child;
     }
 
     public TreeNode getParent() {
