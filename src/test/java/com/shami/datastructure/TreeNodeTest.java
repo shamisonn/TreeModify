@@ -3,8 +3,39 @@ package com.shami.datastructure;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class TreeNodeTest {
+
+    @Test
+    void copyTest1() {
+        TreeNode root = new TreeNode(null);
+        TreeNode n1 = new TreeNode(root);
+        TreeNode n2 = new TreeNode(root);
+        TreeNode n3 = new TreeNode(n2);
+        TreeNode n4 = new TreeNode(n2);
+
+        root.setLeftChild(n1);
+        root.setRightChild(n2);
+
+        n1.setLabel("1");
+        n1.beLeaf();
+
+        n2.setLeftChild(n3);
+        n2.setRightChild(n4);
+
+        n3.setLabel("3");
+        n3.beLeaf();
+
+        n4.setLabel("4");
+        n4.beLeaf();
+
+        TreeNode cp = root.copy(null);
+
+        root.setLabel("hoge");
+
+        assertNotEquals(cp.getLabel(), "hoge");
+    }
 
     @Test
     void toStringTest1() {

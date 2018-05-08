@@ -117,13 +117,16 @@ public class TreeNode {
         TreeNode cp = new TreeNode(parent);
         cp.setLeaf(this.isLeaf);
         cp.setLabel(this.label);
-
-        cp.setLeftChild(this.leftChild.copy(cp));
-        cp.setRightChild(this.rightChild.copy(cp));
-
         cp.setParentEdge(new TreeEdge(parent, cp));
-        cp.setRightEdge(new TreeEdge(parent, cp.getRightChild()));
-        cp.setLeftEdge(new TreeEdge(parent, cp.getLeftChild()));
+
+        if (!cp.isLeaf()) {
+            cp.setLeftChild(this.leftChild.copy(cp));
+            cp.setRightChild(this.rightChild.copy(cp));
+
+            cp.setRightEdge(new TreeEdge(parent, cp.getRightChild()));
+            cp.setLeftEdge(new TreeEdge(parent, cp.getLeftChild()));
+        }
+
 
         return cp;
     }

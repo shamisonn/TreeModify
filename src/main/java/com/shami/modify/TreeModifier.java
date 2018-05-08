@@ -150,7 +150,7 @@ public class TreeModifier {
 
     private int getUnFixedEdge() {
         Collections.shuffle(this.edgesMapping);
-        for (int i: edgesMapping) {
+        for (int i: this.edgesMapping) {
             TreeEdge edge = edges.get(i-1);
             if (!edge.isFix() && !edge.hasLeaf())
                 return i;
@@ -207,10 +207,11 @@ public class TreeModifier {
 
     public void resetTree() {
         this.tree = this.originalTree.copy(null);
+        this.edges = this.edgesSetting(this.tree);
     }
 
     public String modifiedTreeString() {
-        return this.tree.toString();
+        return this.tree.copy(null).toString();
     }
 
     public TreeNode getTree() {

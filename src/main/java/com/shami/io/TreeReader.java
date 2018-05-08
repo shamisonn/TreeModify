@@ -2,11 +2,34 @@ package com.shami.io;
 
 import com.shami.datastructure.TreeNode;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class TreeReader {
+
+    public List<TreeNode> readCenterTreesFromFile(String path) {
+        Scanner fsc = null;
+        try {
+            fsc = new Scanner(new File(path));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        List<TreeNode> trees = new ArrayList<>();
+        assert fsc != null;
+        while (fsc.hasNext()) {
+            String treeInput = fsc.next();
+            trees.add(this.makeTree(treeInput));
+        }
+
+        return trees;
+    }
 
     // "((1,2),(3,((4,5),(((6,7),8),(9,10)))));"
     // "(3,(1,2));"
-    public TreeNode makeTree(String input) {
+    protected TreeNode makeTree(String input) {
         input = input.substring(1, input.length() - 2);
         TreeNode root = new TreeNode(null);
 

@@ -2,7 +2,11 @@ package com.shami.main;
 
 import com.shami.datastructure.TreeNode;
 import com.shami.io.TreeReader;
+import com.shami.io.TreeWriter;
+import com.shami.modify.TreeModifier;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -17,7 +21,19 @@ public class Main {
             e.printStackTrace();
         }
         TreeReader tr = new TreeReader();
-        TreeNode root = tr.makeTree("((1,2),(3,((4,5),(((6,7),8),(9,10)))));");
+        TreeWriter tw = new TreeWriter();
+        // center trees list
+        List<TreeNode> trees = tr.readCenterTreesFromFile(centerTreeFilename);
+        for (TreeNode tree: trees) {
+            TreeModifier tm = new TreeModifier(tree, nni);
+            List<String> modifiedTrees = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                modifiedTrees.add(tm.modify());
+            }
+            tw.writeFile(modifiedTrees, "./hoge.trees");
+        }
+
+        // TreeNode root = tr.makeTree("((1,2),(3,((4,5),(((6,7),8),(9,10)))));");
 
 
     }
