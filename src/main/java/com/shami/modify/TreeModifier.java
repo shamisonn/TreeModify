@@ -202,6 +202,20 @@ public class TreeModifier {
         child.setParent(eParent);
         child.getParentEdge().setParent(eParent);
 
+        // adjust slope edge
+        if (doLeftChange ^ e.isSlopePositive()) {
+            boolean c = child.getParentEdge().isSlopePositive();
+            child.getParentEdge().setSlopePositive(!c);
+            boolean b = bro.getParentEdge().isSlopePositive();
+            bro.getParentEdge().setSlopePositive(!b);
+        }
+
+        if (this.tree.getLeafNumber() != 10) {
+            System.err.println("[ERR] Leaf is Missing. Modify failed");
+            System.exit(1);
+        }
+
+
     }
 
 
@@ -211,6 +225,9 @@ public class TreeModifier {
     }
 
     public String modifiedTreeString() {
+        while (this.tree.getParent() != null) {
+            this.tree = this.tree.getParent();
+        }
         return this.tree.copy(null).toString();
     }
 

@@ -130,4 +130,11 @@ public class TreeNode {
 
         return cp;
     }
+
+    public int getLeafNumber() {
+        if (this.isLeaf)
+            return 1;
+
+        return getLeftChild().getLeafNumber() + getRightChild().getLeafNumber();
+    }
 }

@@ -24,13 +24,17 @@ public class Main {
         TreeWriter tw = new TreeWriter();
         // center trees list
         List<TreeNode> trees = tr.readCenterTreesFromFile(centerTreeFilename);
+        int leafNum = trees.get(0).getLeafNumber();
+        int instNumber = 1;
         for (TreeNode tree: trees) {
             TreeModifier tm = new TreeModifier(tree, nni);
             List<String> modifiedTrees = new ArrayList<>();
             for (int i = 0; i < 10; i++) {
                 modifiedTrees.add(tm.modify());
             }
-            tw.writeFile(modifiedTrees, "./hoge.trees");
+            String filename = "./leaf" + leafNum + "nni"+ nni +"no" + instNumber + ".trees";
+            instNumber += 1;
+            tw.writeFile(modifiedTrees, filename);
         }
 
         // TreeNode root = tr.makeTree("((1,2),(3,((4,5),(((6,7),8),(9,10)))));");

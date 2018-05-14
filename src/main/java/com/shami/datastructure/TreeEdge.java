@@ -32,6 +32,10 @@ public class TreeEdge {
         return isSlopePositive;
     }
 
+    public void setSlopePositive(boolean isSlopePositive) {
+        this.isSlopePositive = isSlopePositive;
+    }
+
     public boolean hasLeaf() {
         return child.isLeaf();
     }
